@@ -19,6 +19,7 @@ grid on
     scatter(xx,y);
     xlabel('x')
     ylabel('y')
+    title(F);
 hold off
 SOL = x0;
 end

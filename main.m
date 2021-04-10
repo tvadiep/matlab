@@ -32,15 +32,19 @@ chiadoi(f,A,Df)
 
 %Bai 6
 syms x
-F = x^3+x-5;
-PI = (5-x)^(1/3);
 
-disp('Ket qua bai 6 cau a la: ');
-x0 = 1.3;
-Df = 3*10^(-3);
-lap(F,PI,x0, Df)
+disp('Ket qua bai 6 cau a, b: Da viet function');
+disp('Ket qua bai 6 cau c la: ');
+f = x + sin(x) -2;
+PI = 2 - sin(x);
+x0 = 1.05;
+Df = 10^(-3);
+lap(f, PI, x0, Df);
 
-
-
-
+disp('Ket qua bai 6 cau d la: ');
+f = x^2+x-5;
+PI = 5 - x^2;
+x0 = 1.5;
+Df = 10^(-3);
+lap(f, PI, x0, Df);
 
