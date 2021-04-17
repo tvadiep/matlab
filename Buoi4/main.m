@@ -86,19 +86,35 @@ disp('Cau d de giong cau c');
 %Bai 8
 syms x
 Df = 10^(-3);
-
+x0 =5;
 %Cau a:
 f = exp(x)+2^(-x)+2*cos(x)-6;
+SOL=tieptuyen(f,x0,Df,'Bai 8: Cau a');
+disp('Ket qua cau 8a la: ');
+disp('Phuong phap tiep tuyen:');
+disp(SOL);
 
 %Cau b:
 f = log(x-1) + cos(x-1);
+SOL=tieptuyen(f,x0,Df,'Bai 8: Cau b',[2,20]);
+disp('Ket qua cau 8b la: ');
+%Bai nay khong co nghiem la so thuc nen se bi warnings
+disp('Phuong phap tiep tuyen:');
+disp(SOL);
 
 %Cau c:
 f = (x-2)^2 -log(x);
+SOL=tieptuyen(f,x0,Df,'Bai 8: Cau c', [2,20]);
+disp('Ket qua cau 8a la: ');
+disp('Phuong phap tiep tuyen:');
+disp(SOL);
 
 %Cau d:
 f = sin(x)-exp(-x);
-
+SOL=tieptuyen(f,x0,Df,'Bai 8: Cau d');
+disp('Ket qua cau 8d la: ');
+disp('Phuong phap tiep tuyen:');
+disp(SOL);
 
 
 

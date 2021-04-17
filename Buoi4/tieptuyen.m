@@ -36,7 +36,7 @@ grid on
     x1 = linspace(range(1),range(2));
     y = subs(f, x, x1);
     plot(x1,y);
-    y = subs(f, x, xx);
+    y = vpa(subs(f, x, xx));
     scatter(xx,y);
     xlabel('x')
     ylabel('y')
