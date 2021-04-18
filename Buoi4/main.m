@@ -82,7 +82,6 @@ disp(SOL)
 %Cau d
 disp('Cau d de giong cau c');
 
-
 %Bai 8
 syms x
 Df = 10^(-3);
@@ -93,7 +92,7 @@ SOL=tieptuyen(f,x0,Df,'Bai 8: Cau a');
 disp('Ket qua cau 8a la: ');
 disp('Phuong phap tiep tuyen:');
 disp(SOL);
-
+disp('Khong ton tai khoang phan nghiem nen khong su dung pp cat tuyen');
 %Cau b:
 f = log(x-1) + cos(x-1);
 SOL=tieptuyen(f,x0,Df,'Bai 8: Cau b',[2,20]);
@@ -101,21 +100,38 @@ disp('Ket qua cau 8b la: ');
 %Bai nay khong co nghiem la so thuc nen se bi warnings
 disp('Phuong phap tiep tuyen:');
 disp(SOL);
+disp('Khong ton tai khoang phan nghiem nen khong su dung pp cat tuyen');
 
 %Cau c:
 f = (x-2)^2 -log(x);
-SOL=tieptuyen(f,x0,Df,'Bai 8: Cau c', [2,20]);
-disp('Ket qua cau 8a la: ');
+%Tiep tuyen
+SOL=tieptuyen(f,x0,Df,'Bai 8: Cau c(Tieptuyen)', [2,20]);
+disp('Ket qua cau 8c la: ');
 disp('Phuong phap tiep tuyen:');
 disp(SOL);
+%Cat tuyen
+a = 2.02;
+b=5;
+A=[a,b];
+SOL = cattuyen(f,A,Df,'Bai 8: Cau c(Cattuyen)');
+disp('Ket qua phuong phap cat tuyen la: ');
+disp(SOL)
+
 
 %Cau d:
 f = sin(x)-exp(-x);
-SOL=tieptuyen(f,x0,Df,'Bai 8: Cau d');
+%Tiep tuyen
+SOL=tieptuyen(f,x0,Df,'Bai 8: Cau d(Tieptuyen)');
 disp('Ket qua cau 8d la: ');
 disp('Phuong phap tiep tuyen:');
 disp(SOL);
-
+%Cat tuyen
+a = 2.02;
+b=5;
+A=[a,b];
+SOL = cattuyen(f,A,Df,'Bai 8: Cau d(Cattuyen)');
+disp('Ket qua phuong phap cat tuyen la: ');
+disp(SOL)
 
 
 
