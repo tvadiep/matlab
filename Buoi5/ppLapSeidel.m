@@ -7,8 +7,13 @@ G = C./diag(A);
 x0 = G;
 xn = x0;
 k = 1;
+
 while(1)
-    xn(1) = B(1,:)*x0+G(1);
+    xn(1) =0;
+    for j = 1:n
+        xn(1) = xn(1) + B(1,j) * x0(j);
+    end
+    xn(1) = xn(1) + G(1);
     for i = 2:n
         bt1 = 0;
         for j = 1:(i-1)
@@ -16,9 +21,9 @@ while(1)
         end
         bt2 = 0;
         for j = i:n
-            bt2 = bt2 + B(i,j)*x0(j)+G(i);
+            bt2 = bt2 + B(i,j)*x0(j);
         end
-        xn(i) = bt1 + bt2;
+        xn(i) = bt1 + bt2 + G(i);
     end
     if abs(A*xn-C)<dF
         break;
