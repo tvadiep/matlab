@@ -8,10 +8,17 @@ x0 = G;
 xn = x0;
 k = 1;
 while(1)
-    for i = [1,n]
-        xn(i) = B(1,:)*x0+G(1);
-        xn(2) = B(2,1)*xn(1) + B(2,2)*x0(2) + B(2,3)*x0(3)+G(2);
-        xn(3) = B(3,1)*xn(1) + B(3,2)*xn(2) + B(3,3)*x0(3)+G(3);
+    xn(1) = B(1,:)*x0+G(1);
+    for i = 2:n
+        bt1 = 0;
+        for j = 1:(i-1)
+            bt1 = bt1 + B(i,j)*xn(j);
+        end
+        bt2 = 0;
+        for j = i:n
+            bt2 = bt2 + B(i,j)*x0(j)+G(i);
+        end
+        xn(i) = bt1 + bt2;
     end
     if abs(A*xn-C)<dF
         break;
@@ -19,7 +26,6 @@ while(1)
         x0 = xn;
         k = k+1;
     end
-    disp(k);
 end
 SOL = xn;
 end
