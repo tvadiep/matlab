@@ -1,4 +1,4 @@
-function[SOL] = ppLapSeidel(A,C,dF)
+function[SOL] = ppLapSeidel(A,C,dF) % A la ma tran he so ve trai cua cac phuong trinh, C la ve phai cua cac PT, df la do sai so cho phep)
 [m,n]=size(A);
 %vi m = n nen khong can sd m
 B = -A./diag(A) + eye(n);
