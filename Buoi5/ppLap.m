@@ -1,6 +1,5 @@
 function[SOL] = ppLap(A,C,dF)
 [m,n]=size(A);
-%vi m = n nen khong can sd m
 B = -A./diag(A) + eye(n);
 
 G = C./diag(A);
