@@ -2,24 +2,19 @@ function[SOL] = daThucLagrange(xx,yy,xc) %Voi xx co do dai n
     syms x;
     n = length(xx);
     disp(n);
-    L = [];
-    for i = 1:n
-        tmp_xx = xx(xx~=xx(i));
-        disp(tmp_xx);
-        L(i) = 1;
-        for j = 1:(n-1)
-            L(i) = L(i)*(x-tmp_xx(j))/(xx(i)-tmp_xx(j));
-        end
-    end
     P = 0;
     for i = 1:n
-        P = P + L(i)*yy(i);
+        tmp_xx = xx(xx~=xx(i));
+        L = 1;
+        for j = 1:(n-1)
+            L = L*(x-tmp_xx(j))/vpa((xx(i)-tmp_xx(j)));
+        end
+        P = P + L*yy(i);
     end
-    P = simplify(P);
     SOL = subs(P,x,xc);
     
     fi = figure;
-    fi.Name = sprintf('Ham noi suy boi da thuc Lagrange');
+    fi.Name = sprintf('Noi Suy Bang Da Thuc Lagrange');
     hold on
     grid on
         x_vals = linspace(xx(1),xx(n));
