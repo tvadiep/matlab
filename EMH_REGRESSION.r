@@ -1,13 +1,18 @@
 # P la mang chua du lieu
 # Ham nay de tinh delta P(t)
 
-P = data1
-regression<- function(){
-	  dPt <- 0
+#P = data1
+P <- c(1:9)
+r <- 0
+t <- 0
+s <- 0
+regression<- function(r,t,s){
+    dPt <- 0
     sum1 <- 0
     for (i in 1:r){
     	if(P(t)-P(t-i) > 0){
         	dU <- (P(t)-P(t-i))
+            sum1 <- (sum1 + dU)
         }
     }
     sum2 <- 0
@@ -20,4 +25,4 @@ regression<- function(){
     dPt <- (alpha + sum1 + sum2 +epsilon)
     return (dPt)
 }
-dPt = regression
+#dPt <- regression(t)
